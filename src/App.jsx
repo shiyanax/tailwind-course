@@ -259,7 +259,7 @@ export default function App() {
       <section id="home" className="relative min-h-screen overflow-hidden">
         <div className="absolute inset-0 bg-black">
           <iframe
-            className="absolute left-1/2 top-1/2 h-[56.25vw] min-h-full w-full min-w-[177.777778vh] -translate-x-1/2 -translate-y-1/2"
+            className="pointer-events-none absolute left-1/2 top-1/2 h-[56.25vw] min-h-full w-full min-w-[177.777778vh] -translate-x-1/2 -translate-y-1/2"
             src={`https://www.youtube.com/embed/zWfX5jeF6k4?autoplay=1&mute=${isVideoMuted ? "1" : "0"}&loop=1&playlist=zWfX5jeF6k4&controls=0&modestbranding=1&playsinline=1`}
             title="Nike shoe landing page reference video"
             allow="autoplay; encrypted-media; picture-in-picture; web-share"

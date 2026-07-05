@@ -23,21 +23,38 @@ export default function Nav({
   return (
     <nav className="relative z-40 flex items-center justify-between">
       {/* Logo */}
-      <button type="button" onClick={() => handleNavigate("Home")}>
+      <button
+        type="button"
+        onClick={() => handleNavigate("Home")}
+        aria-label="Go to home"
+      >
         <Nikelogo className="h-20 w-20" />
       </button>
       {/* Triger Open*/}
       <button
+        type="button"
         className={`rounded-md p-2 transition-colors focus:ring-2 focus:ring-gray-200 lg:hidden ${
           isDark ? "text-white hover:bg-white/10" : "text-black hover:bg-gray-100"
         }`}
         onClick={() => setIsOpen(!isOpen)}
+        aria-label="Open menu"
+        aria-expanded={isOpen}
       >
         <RxHamburgerMenu size={25} />
       </button>
       {/* Links */}
+      <button
+        type="button"
+        className={`fixed inset-0 z-[80] bg-black/40 transition-opacity lg:hidden ${
+          isOpen ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"
+        }`}
+        onClick={() => setIsOpen(false)}
+        aria-label="Close menu overlay"
+      />
       <div
-        className={`fixed top-0 right-0 z-50 h-screen w-72 bg-white text-black shadow-2xl transition-transform duration-300 lg:hidden ${isOpen ? "translate-x-0" : "translate-x-full"}`}
+        className={`fixed right-0 top-0 z-[90] h-screen w-72 bg-white text-black shadow-2xl transition-transform duration-300 lg:hidden ${
+          isOpen ? "translate-x-0" : "translate-x-full"
+        }`}
       >
         {/*Triger Close */}
         <button
@@ -49,7 +66,7 @@ export default function Nav({
         </button>
         <ul className="mt-20">
           {routes.map((route) => (
-            <li key={route} className="p-2 cursor-pointer">
+            <li key={route} className="p-2">
               <button
                 type="button"
                 className={`ml-4 block text-2xl font-semibold transition-transform duration-200 hover:translate-x-2 hover:text-lime-400 ${
